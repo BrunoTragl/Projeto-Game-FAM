@@ -33,26 +33,29 @@ public class Tratamento extends Thread {
             ObjectInputStream ois;
             ObjectOutputStream oos;
             // variavel verificar o objeto
-            String verificar,   mensagem="";
+            String    mensagem="";
             // instanciar o objetao
             ObjetaoSocket objetaoSocket = new ObjetaoSocket();
             // atribuir a variavel resposta os dados do objetão
-          
+          ObjetaoSocket verificar ;
+                        
 // criar um input para verificar os dados do jogador
-            ois = new ObjectInputStream(socket.getInputStream());
+ 
+            
+                  ois = new ObjectInputStream(socket.getInputStream());
             // verifica se a mensagen do cliete
-            verificar = (String) ois.readObject();
+           mensagem = (String) ois.readObject();
             
             // se a mensagen do cliente for objetao significa que os dados do jogo foram preenchidos de um dos clientes
             // sendo assim resposta recebe o objetao e retorna os dados ao cliente 
-            if (verificar.equalsIgnoreCase("objetao")) {
+            if (mensagem.equalsIgnoreCase("objetao")) {
           oos = new ObjectOutputStream(socket.getOutputStream());
             oos.flush();
             // enviando resposta com objeto ao cliente
             oos.writeObject(objetaoSocket);
             
             
-                mensagem ="enviou";
+                System.out.println("Chegou");
   }
             else
             {
