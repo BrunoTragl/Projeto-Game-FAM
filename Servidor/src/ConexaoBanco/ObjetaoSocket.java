@@ -1,12 +1,12 @@
-package Servidor;
+package ConexaoBanco;
 
 import Entidades.*;
-import java.io.Serializable;
 
-public class ObjetaoSocket implements Serializable{
+public class ObjetaoSocket {
     public String mensagem;
     public JogadorDTO jogador, jogadorAdversario;
     public PersonagemDTO personagem;
     public BatalhaDTO batalha;
     public HistoricoBatalhaDTO historicoBatalha;
+    public AutenticacaoDTO autenticacao;
 }
