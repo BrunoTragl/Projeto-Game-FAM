@@ -5,6 +5,7 @@
  */
 package cenario;
 
+import Jogo.Jogador;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
