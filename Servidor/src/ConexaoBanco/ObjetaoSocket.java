@@ -1,3 +1,5 @@
+package ConexaoBanco;
+
 import Entidades.*;
 
 public class ObjetaoSocket {
@@ -6,4 +8,5 @@ public class ObjetaoSocket {
     public PersonagemDTO personagem;
     public BatalhaDTO batalha;
     public HistoricoBatalhaDTO historicoBatalha;
+    public AutenticacaoDTO autenticacao;
 }

@@ -1,4 +1,5 @@
 
+import ConexaoBanco.ObjetaoSocket;
 import ConexaoBanco.*;
 import Entidades.*;
 import java.io.*;
