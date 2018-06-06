@@ -52,20 +52,19 @@ public class Jogo {
        ObjectOutputStream oos;
        ObjectInputStream ois;
        Socket cliente = new Socket(IPServidor,PortaServidor );
+       resposta.mensagem="objetao"  ; 
        oos = new ObjectOutputStream(cliente.getOutputStream());
        oos.flush();
-       
+ 
+
        // se a conexao for feita mando uma mensagem para com a palavra objtao 
-       oos.writeObject("objetao");
+       oos.writeObject(resposta);
        
        ois = new ObjectInputStream(cliente.getInputStream());
        resposta = (ObjetaoSocket) ois.readObject();
 
    
-       
-            ois = new ObjectInputStream(cliente.getInputStream());
-       mensagem = (String) ois.readObject();
-       JOptionPane.showMessageDialog(null, mensagem);
+
        
        ois.close();
        oos.close();

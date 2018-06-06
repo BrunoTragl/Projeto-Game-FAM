@@ -4,7 +4,6 @@ import Entidades.JogadorDTO;
 import Entidades.BatalhaDTO;
 import Entidades.HistoricoBatalhaDTO;
 import Entidades.PersonagemDTO;
-import Entidades.*;
 
 
 import java.io.Serializable;

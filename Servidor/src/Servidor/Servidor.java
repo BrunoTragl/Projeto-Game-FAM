@@ -1,17 +1,13 @@
 package Servidor;
 
 
-import ConexaoBanco.*;
-import Entidades.*;
-import java.io.*;
-import java.net.*;
 import java.io.IOException;
  import java.net.ServerSocket;
   import java.net.Socket;
 
 
 public class Servidor {
- private static int PortaServidor = 8000;
+ private static final int PortaServidor = 8000;
 
     private static Utils utils = new Utils();
     

@@ -5,11 +5,13 @@
  */
 package Entidades;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Bruno
  */
-public class JogadorDTO {
+public class JogadorDTO implements Serializable{
     public String Nome, IP, Porta;
     public int Id;
     public PersonagemDTO Personagem;

@@ -5,11 +5,13 @@
  */
 package Entidades;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Bruno
  */
-public class PersonagemDTO {
+public class PersonagemDTO implements Serializable{
     public static String Nome, TipoPoder, ImagemAtaqueBasico, ImagemAtaqueEspecial;
     public static int Id, AtaqueBasico, AtaqueEspecial, Vida;
     

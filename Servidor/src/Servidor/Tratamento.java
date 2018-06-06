@@ -1,6 +1,5 @@
 package Servidor;
 
-
 import ConexaoBanco.ConexaoSQLite;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -33,41 +32,37 @@ public class Tratamento extends Thread {
             ObjectInputStream ois;
             ObjectOutputStream oos;
             // variavel verificar o objeto
-            String    mensagem="";
+            String mensagem = "";
             // instanciar o objetao
             ObjetaoSocket objetaoSocket = new ObjetaoSocket();
             // atribuir a variavel resposta os dados do objetão
-          ObjetaoSocket verificar ;
-                        
+            ObjetaoSocket verificar;
+
 // criar um input para verificar os dados do jogador
- 
-            
-                  ois = new ObjectInputStream(socket.getInputStream());
+            ois = new ObjectInputStream(socket.getInputStream());
             // verifica se a mensagen do cliete
-           mensagem = (String) ois.readObject();
-            
+            Object alien=ois.readObject();
+            System.out.println(alien instanceof ObjetaoSocket?"É":"Não");
+            ObjetaoSocket oosk = (ObjetaoSocket) ois.readObject();
+            mensagem = oosk.mensagem;
+
             // se a mensagen do cliente for objetao significa que os dados do jogo foram preenchidos de um dos clientes
             // sendo assim resposta recebe o objetao e retorna os dados ao cliente 
             if (mensagem.equalsIgnoreCase("objetao")) {
-          oos = new ObjectOutputStream(socket.getOutputStream());
-            oos.flush();
-            // enviando resposta com objeto ao cliente
-            oos.writeObject(objetaoSocket);
-            
-            
+                oos = new ObjectOutputStream(socket.getOutputStream());
+                oos.flush();
+                // enviando resposta com objeto ao cliente
+                oos.writeObject(objetaoSocket);
+
                 System.out.println("Chegou");
-  }
-            else
-            {
-         
+            } else {
+
             }
-        
-            
-                   oos = new ObjectOutputStream(socket.getOutputStream());
+
+            oos = new ObjectOutputStream(socket.getOutputStream());
             oos.flush();
-         oos.writeObject(mensagem);
-                    
-                    
+            oos.writeObject(mensagem);
+
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(String.format("Erro: %s",
                     e.getLocalizedMessage()));
