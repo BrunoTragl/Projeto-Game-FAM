@@ -56,7 +56,7 @@ public class Jogo {
        oos.flush();
        
        // se a conexao for feita mando uma mensagem para com a palavra objtao 
-       oos.writeObject(objetaoSocket);
+       oos.writeObject("objetao");
        
        ois = new ObjectInputStream(cliente.getInputStream());
        resposta = (ObjetaoSocket) ois.readObject();
