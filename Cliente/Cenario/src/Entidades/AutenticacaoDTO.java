@@ -13,8 +13,8 @@ import java.io.Serializable;
  */
 public class AutenticacaoDTO implements Serializable{
     
-    int id, idJogador;
-    String login,senha;
+    int id=0, idJogador=0;
+    String login=null,senha=null;
     
     
 }

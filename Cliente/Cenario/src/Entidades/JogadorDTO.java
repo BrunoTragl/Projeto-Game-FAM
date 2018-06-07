@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Bruno
  */
 public class JogadorDTO implements Serializable{
-    public String Nome, IP, Porta;
-    public int Id;
+    public String Nome=null, IP=null, Porta=null;
+    public int Id=0;
     public PersonagemDTO Personagem;
 }

@@ -12,6 +12,6 @@ import java.io.Serializable;
  * @author Bruno
  */
 public class HistoricoBatalhaDTO implements Serializable {
-    public int IdHistoricoBatalha, IdBatalha, IdJogadorAtaque, IdJogadorDefesa, DadosAtaque, DadosDefesa, TirarQtdeVida;
-    public boolean AtaqueGanhou;
+    public int IdHistoricoBatalha =0, IdBatalha=0, IdJogadorAtaque=0, IdJogadorDefesa=0, DadosAtaque=0, DadosDefesa=0, TirarQtdeVida=0;
+    public boolean AtaqueGanhou=false;
 }
