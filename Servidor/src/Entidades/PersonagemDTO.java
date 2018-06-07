@@ -12,8 +12,8 @@ import java.io.Serializable;
  * @author Bruno
  */
 public class PersonagemDTO implements Serializable{
-    public static String Nome, TipoPoder, ImagemAtaqueBasico, ImagemAtaqueEspecial;
-    public static int Id, AtaqueBasico, AtaqueEspecial, Vida;
+    public static String Nome=null, TipoPoder=null, ImagemAtaqueBasico=null, ImagemAtaqueEspecial=null;
+    public static int Id=0, AtaqueBasico=0, AtaqueEspecial=0, Vida=0;
     
     public int getId(){
         return this.Id;
