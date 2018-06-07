@@ -5,13 +5,10 @@
  */
 package ConexaoBanco;
 
-import Entidades.BatalhaDTO;
-import Entidades.PersonagemDTO;
-import Entidades.JogadorDTO;
+import Entidades.*;
 import java.io.File;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -54,7 +51,18 @@ public class ConexaoSQLite {
     }
 
     public static boolean FazerUmaOperacaoNoBanco(String Query) {
-        return true;
+        boolean retorno = false;
+        Connection conn = ConectarNoBanco();
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            retorno = stmt.execute(Query);
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            return retorno;
+        } finally {
+            return retorno;
+        }
     }
 
     public static PersonagemDTO CriarPersonagem(String Nome, int Vida, int AtaqueBasico, int AtaqueEspecial, String TipoPoder) {
@@ -114,13 +122,10 @@ public class ConexaoSQLite {
         return personagem;
     }
 
-    public static JogadorDTO CriarJogador(String Nome, String IP, String Porta) {
-        JogadorDTO jogador = new JogadorDTO();
-        jogador.IP = IP;
-        jogador.Nome = Nome;
-        jogador.Porta = Porta;
-        FazerUmaOperacaoNoBanco("INSERT INTO Jogador(Nome, IP, Porta) VALUES (" + Nome + "," + IP + "," + Porta + ")");
-        return jogador;
+    public static boolean CriarJogador(ObjetaoSocket obj) {
+        String query = "INSERT INTO Jogador(Nome, IP, Porta) VALUES (" +
+                obj.jogador.Nome + "," + obj.jogador.IP + "," + obj.jogador.Porta + ")";
+        return FazerUmaOperacaoNoBanco(query);
     }
 
     public static JogadorDTO SelecionarJogadorPeloId(int Id) {
