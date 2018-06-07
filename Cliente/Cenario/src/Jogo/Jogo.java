@@ -21,7 +21,7 @@ public class Jogo extends Thread implements Runnable {
 
     private static String IPServidor = "127.168.0.1";
     private static final Utils utils = new Utils();
-
+ObjetaoSocket objetaoSocket = new ObjetaoSocket();
     public static void main(String[] args) {
         //  JFrame janela;
         //Cenario cenario = new Cenario();
@@ -85,7 +85,3 @@ public class Jogo extends Thread implements Runnable {
 
     }
 }
-
-        
-        
-    
