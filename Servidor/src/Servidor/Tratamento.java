@@ -1,17 +1,10 @@
 package Servidor;
 
 import ConexaoBanco.ConexaoSQLite;
-import java.net.ServerSocket;
-import java.net.Socket;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.JOptionPane;
 
 public class Tratamento extends Thread {
 
@@ -28,40 +21,37 @@ public class Tratamento extends Thread {
     @Override
     public void run() {
         try {
-
+            // crio conexao de entrada
             ObjectInputStream ois;
-            ObjectOutputStream oos;
-            // variavel verificar o objeto
-            String mensagem = "";
+
+            // crio conexao de saida 
+            ObjectOutputStream oos = null;
+
             // instanciar o objetao
             ObjetaoSocket objetaoSocket = new ObjetaoSocket();
-            // atribuir a variavel resposta os dados do objetão
-            ObjetaoSocket verificar;
+            ObjetaoSocket objetorecebido = objetaoSocket;
 
-// criar um input para verificar os dados do jogador
+            // instancio a classe para pegar o objetao
             ois = new ObjectInputStream(socket.getInputStream());
-            // verifica se a mensagen do cliete
-            Object alien=ois.readObject();
-            System.out.println(alien instanceof ObjetaoSocket?"É":"Não");
-            ObjetaoSocket oosk = (ObjetaoSocket) ois.readObject();
-            mensagem = oosk.mensagem;
 
-            // se a mensagen do cliente for objetao significa que os dados do jogo foram preenchidos de um dos clientes
-            // sendo assim resposta recebe o objetao e retorna os dados ao cliente 
-            if (mensagem.equalsIgnoreCase("objetao")) {
+            //  crio uma variavel do tipo objeto para ler o objeto enviado pelo jogador
+            objetorecebido = (ObjetaoSocket) ois.readObject();
+
+                            // confirmando que foi recebido      
+                System.out.println("recebido");
+                
+                // agora vou enviar o objeto novamente ao jogador     
+                
+                
+                // criando envio       
                 oos = new ObjectOutputStream(socket.getOutputStream());
+                // enviando o objeto
+                oos.writeObject(objetorecebido);
                 oos.flush();
-                // enviando resposta com objeto ao cliente
-                oos.writeObject(objetaoSocket);
 
-                System.out.println("Chegou");
-            } else {
 
-            }
-
-            oos = new ObjectOutputStream(socket.getOutputStream());
-            oos.flush();
-            oos.writeObject(mensagem);
+// imprimo os objetos recebidos    
+            System.out.println("dado do objeto recebido " + objetorecebido);
 
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(String.format("Erro: %s",
