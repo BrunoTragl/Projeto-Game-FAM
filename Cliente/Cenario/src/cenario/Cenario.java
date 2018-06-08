@@ -24,7 +24,7 @@ import javax.swing.SwingUtilities;
  */
 public class Cenario extends Thread {
 
-    private String titulo = "Nome do nosso jogo!";
+    private String titulo = "NATURALMON";
     private JFrame janela;
     private Jogador jogador;
     private Timer timer = null;
@@ -189,14 +189,14 @@ public class Cenario extends Thread {
 
     public JFrame SelecionarPersonagem() {
         //Remove todos os componentes da janela e redimensiona para incluir novos componentes
-        CriarNovaJanela(600, 800);
+        CriarNovaJanela(600, 720);
         //Set Layout 5 linhas e 1 coluna
         this.janela.setLayout(new FlowLayout());
-        this.janela.add(CriarLabel("SELECIONE O SEU PERSONAGEM:", "", 25, true));
-        this.janela.add(CriarPersonagem(new Personagem("PIKACHU", "RAIO", 10, 35, 155, "1.png")));
-        this.janela.add(CriarPersonagem(new Personagem("BULBASSAURO", "PLANTA", 7, 30, 170, "2.png")));
-        this.janela.add(CriarPersonagem(new Personagem("AINDA NÃO DEI UM NOME", "PEDRA", 12, 40, 200, "3.png")));
-        this.janela.add(CriarPersonagem(new Personagem("BULBASSAURO", "PLANTA", 7, 30, 170, "4.png")));
+        this.janela.add(CriarLabel("SELECIONE O SEU PERSONAGEM", "", 20, true));
+        this.janela.add(CriarPersonagem(new Personagem("FLOSTER", "GELO", 10, 35, 155, "flosterFrente.png")));
+        this.janela.add(CriarPersonagem(new Personagem("VULKYAN", "VULCÃO", 7, 30, 170, "vulkyanFrente.png")));
+        this.janela.add(CriarPersonagem(new Personagem("ORION", "AGUA", 12, 40, 200, "orionFrente.png")));
+        this.janela.add(CriarPersonagem(new Personagem("SEEDER", "PLANTA", 7, 30, 170, "seederFrente.png")));
         return this.janela;
     }
 
@@ -249,8 +249,8 @@ public class Cenario extends Thread {
     private JPanel CriarPersonagem(Personagem personagem) {
         JPanel painel = new JPanel();
         painel.setLayout(new BorderLayout());
-        painel.setBorder(new EmptyBorder(10, 10, 10, 10));
-        painel.setPreferredSize(new Dimension(550, 250));
+        painel.setBorder(new EmptyBorder(0, 2, 2, 0));
+        painel.setPreferredSize(new Dimension(500, 155));
 
         JPanel painelImagemInfos = new JPanel();
         painelImagemInfos.setLayout(new BorderLayout());
@@ -258,21 +258,21 @@ public class Cenario extends Thread {
 
         ImageIcon imagemPersonagem = new ImageIcon(Cenario.class.getResource(personagem.getImagem()));
         JLabel imagemLabel = new JLabel(imagemPersonagem);
-        imagemLabel.setBorder(new EmptyBorder(0, 0, 0, 15));
+        imagemLabel.setBorder(new EmptyBorder(0, 0, 0, 0));
         painelImagemInfos.add(imagemLabel, BorderLayout.LINE_START);
 
         JPanel painelInfos = new JPanel();
         painelInfos.setLayout(new GridLayout(5, 2));
         painelInfos.add(new JLabel("NOME:  " + personagem.getNome()));
         painelInfos.add(new JLabel("PODER:  " + personagem.getTipoPoder()));
-        painelInfos.add(new JLabel("VIDA:  " + Integer.toString(personagem.getVida()) + "HP"));
+         painelInfos.add(new JLabel("VIDA:  " + Integer.toString(personagem.getVida()) + "HP"));
         painelInfos.add(new JLabel("GOLPE BASICO:  " + Integer.toString(personagem.getAtaqueBasico()) + "HP"));
         painelInfos.add(new JLabel("GOLPE ESPECIAL:  " + Integer.toString(personagem.getAtaqueEspecial()) + "HP"));
         painelImagemInfos.add(painelInfos, BorderLayout.CENTER);
 
-        String textoBotao = "<html>S<br/>E<br/>L<br/>E<br/>C<br/>I<br/>O<br/>N<br/>A<br/>R<br/></html>";
+        String textoBotao = "<html>E<br/>S<br/>C<br/>O<br/>L<br/>H<br/>E<br/>R</html>";
 
-        JButton btnSelecionarPersonagem = CriarBotao("Selecionar", "", 14, true, Color.getHSBColor(40, 120, 214));
+        JButton btnSelecionarPersonagem = CriarBotao("Escolher", "", 12, true, Color.getHSBColor(40, 120, 214));
 
         btnSelecionarPersonagem.addActionListener(new ActionListener() {
             //Quando botão for clicado
