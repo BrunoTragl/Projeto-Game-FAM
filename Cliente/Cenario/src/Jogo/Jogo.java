@@ -5,11 +5,13 @@
  */
 package Jogo;
 
+import cenario.Cenario;
 import cenario.Utils;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import javax.swing.JFrame;
 
 /**
  *
@@ -23,11 +25,11 @@ public class Jogo extends Thread implements Runnable {
     private static final Utils utils = new Utils();
 ObjetaoSocket objetaoSocket = new ObjetaoSocket();
     public static void main(String[] args) {
-        //  JFrame janela;
-        //Cenario cenario = new Cenario();
-        //janela = cenario.SplashScreen();
+         JFrame janela;
+        Cenario cenario = new Cenario();
+        janela = cenario.SplashScreen();
 
-        //janela.setVisible(true);
+       janela.setVisible(true);
         // IPServidor = utils.getIP();
         // PortaServidor = utils.getPorta();
         

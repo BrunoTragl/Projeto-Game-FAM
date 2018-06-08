@@ -196,6 +196,7 @@ public class Cenario extends Thread {
         this.janela.add(CriarPersonagem(new Personagem("PIKACHU", "RAIO", 10, 35, 155, "1.png")));
         this.janela.add(CriarPersonagem(new Personagem("BULBASSAURO", "PLANTA", 7, 30, 170, "2.png")));
         this.janela.add(CriarPersonagem(new Personagem("AINDA NÃO DEI UM NOME", "PEDRA", 12, 40, 200, "3.png")));
+        this.janela.add(CriarPersonagem(new Personagem("BULBASSAURO", "PLANTA", 7, 30, 170, "4.png")));
         return this.janela;
     }
 
